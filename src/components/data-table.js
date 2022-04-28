@@ -18,6 +18,7 @@ export const DataTable = ({ data, ...rest }) => {
             <tr key={product.name}>
               <td>{product.name}</td>
               <td>{new Date(item.date).toLocaleDateString()}</td>
+              {/* {console.log(item.date)} */}
               <td>{item.amount}</td>
               <td>{product.price} $</td>
             </tr>

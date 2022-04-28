@@ -13,31 +13,32 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setData(data)
-        setFilteredData(data)
-        console.log(data)
       })
   }, [])
 
   const handleFilter = (event) => {
     event.preventDefault()
+    // console.log(event.target)
     const formData = new FormData(event.target)
+    // console.log(formData.entries())
     const value = Object.fromEntries(formData.entries())
-
+    // console.log(data)
     setFilteredData(
       data.filter((d) => {
+        // console.log(new Date(d.date).toLocaleDateString())
         let filter = true
         if (value.name) {
           filter = d.product[0].name.toLowerCase() === value.name.toLowerCase()
         }
-
         if (value.date) {
+          // let apiTime = new Date(d.date).toLocaleDateString()
+          // let userTime = new Date(value.date).toLocaleDateString()
+          // filter = filter && apiTime === userTime
           filter = filter && new Date(d.date).toLocaleDateString() === new Date(value.date).toLocaleDateString()
         }
-
         if (value.amount) {
           filter = filter && d.amount === Number(value.amount)
         }
-
         return filter
       })
     )
@@ -48,10 +49,10 @@ function App() {
   return (
     <div className='App'>
       <Menu className='mb-4' />
-      <Container>
+      <Container fluid>
         <Row>
           <Col>
-            <FilterBar onSubmit={handleFilter} className='mb-4' />
+            <FilterBar onSubmi={handleFilter} className='mb-4' />
             <DataTable data={isFiltered ? filteredData : data} />
           </Col>
           <Col>

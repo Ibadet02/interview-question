@@ -1,10 +1,10 @@
 import React from 'react'
 import { InputGroup, FormControl, Button } from 'react-bootstrap'
 
-export const FilterBar = ({ onSubmit, ...props }) => {
+export const FilterBar = ({ onSubmi }) => {
   return (
-    <form onSubmit={onSubmit}>
-      <InputGroup {...props}>
+    <form onSubmit={onSubmi}>
+      <InputGroup>
         <FormControl name='name' placeholder='Search Product' />
         <FormControl name='amount' placeholder='Enter order amount' />
         <FormControl name='date' type='date' placeholder='Select Date' />

@@ -38,9 +38,9 @@ export const BarChart = ({ data }) => {
         label: 'Satış sayı',
         borderColor: '#FE9832',
         backgroundColor: '#FE9832',
-        data: data.map((data) => data.amount),
-      },
-    ],
+        data: data.map((data) => data.amount)
+      }
+    ]
   })
 
   const findMostPopular = () => {
